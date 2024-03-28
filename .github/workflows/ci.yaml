@@ -920,6 +920,8 @@ jobs:
           name: coverage-${{ matrix.python-version }}-${{ matrix.group }}
           path: coverage.xml
           overwrite: true
+      - name: Remove pytest_buckets
+        run: rm pytest_buckets.txt
       - name: Check dirty
         run: |
           ./script/check_dirty

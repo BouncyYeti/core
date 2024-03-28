@@ -122,9 +122,11 @@ def main() -> None:
 
     tests = TestFolder("tests")
     max_tests_in_file = count_tests(tests)
-    print(f"Max tests in a single file: {max_tests_in_file}")
+    print(f"Maximum tests in a single file: {max_tests_in_file}")
+    print(f"Total tests: {tests.total_tests}")
 
     tests_per_bucket = ceil(tests.total_tests / arguments.bucket_count)
+    print(f"Estimated tests per bucket: {tests_per_bucket}")
 
     if max_tests_in_file > tests_per_bucket:
         raise ValueError(
